@@ -8,3 +8,5 @@ The following technologies were used in this application:
 * Servlet API 3.1
 * JPA 2.1
 * JAXB
+
+I decided to use only Java Specifications in order to let this application be less vendor dependent.
