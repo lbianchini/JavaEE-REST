@@ -1,6 +1,6 @@
 # JavaEE-REST-Example
 This project is intended to show an example on how to do a Back-End application using REST. 
-The following technologies were used in this application: 
+The following libraries were used in this application: 
 
 * JavaEE 6.0
 * EJB API 3.0
