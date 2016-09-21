@@ -1,4 +1,4 @@
-# JavaEE-REST
+# JavaEE-REST-Example
 This project is intended to show an example on how to do a Back-End application using REST. 
 The following technologies were used in this application: 
 
