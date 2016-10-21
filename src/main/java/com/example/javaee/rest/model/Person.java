@@ -1,21 +1,35 @@
 package com.example.javaee.rest.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+
+/**
+ * This Class consists in represent a person, with its attibutes and behaviors.
+ * This class is used to be persisted.
+ * 
+ * @author LBianchini
+ *
+ */
 
 @Entity
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Person {
-	
+
 	@Id
 	@GeneratedValue
 	private Integer id;
 	
+	@OneToMany
+	private List<Phone> phones;
+
 	private String name;
 	private String lastName;
 	private Double salary;
@@ -92,6 +106,5 @@ public class Person {
 	public String toString() {
 		return "Person [id=" + id + ", name=" + name + ", lastName=" + lastName + ", salary=" + salary + "]";
 	}
-	
 
 }

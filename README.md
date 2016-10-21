@@ -9,4 +9,4 @@ The following libraries were used in this application:
 * JPA 2.1
 * JAXB
 
-I decided to use only Java Specifications in order to let this application be less vendor dependent.
+I decided to use only Java Specifications in order to let this application less vendor dependent.

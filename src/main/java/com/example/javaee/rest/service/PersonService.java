@@ -13,10 +13,12 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.example.javaee.rest.application.RestApplicationPath;
 import com.example.javaee.rest.controller.PersonController;
+
 import com.example.javaee.rest.model.Person;
 
-@Path("persons")
+@Path(RestApplicationPath.PERSON)
 @Stateless
 public class PersonService {
 		
@@ -24,15 +26,16 @@ public class PersonService {
 	private PersonController personController;
 	
 	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
+	@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	public Response save(Person person) {
+		
 		personController.save(person);
-		URI uri = URI.create("persons/" + person.getId());
+		URI uri = URI.create(RestApplicationPath.PERSON + "/" + person.getId());
 		return Response.created(uri).entity(person).build();
 	}
 	
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)
+	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	public List<Person> getPersonList() {
 		return personController.getPersonList();
 	}
