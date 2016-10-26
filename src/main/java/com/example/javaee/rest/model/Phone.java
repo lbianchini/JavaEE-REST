@@ -1,24 +1,33 @@
 package com.example.javaee.rest.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-@Entity
+@Entity(name = "phone")
 public class Phone {
 	
 	@Id
+	@GeneratedValue
+	@Column(name = "phone_id")
 	private Integer id;
 	
 	@ManyToOne
+	@JoinColumn(name = "country_id", nullable = false)
 	private Country country;
 	
 	@ManyToOne
+	@JoinColumn(name = "state_id", nullable = false)
 	private State state;
 	
 	@ManyToOne
+	@JoinColumn(name = "phone_type_id", nullable = false)
 	private PhoneType phoneType;
 	
+	@Column(name = "number", nullable = false)
 	private String number;
 
 	public Integer getId() {

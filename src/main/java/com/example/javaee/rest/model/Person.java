@@ -2,9 +2,11 @@ package com.example.javaee.rest.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -18,21 +20,30 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  */
 
-@Entity
+@Entity(name = "person")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Person {
 
 	@Id
 	@GeneratedValue
+	@Column(name = "person_id")
 	private Integer id;
 	
-	@OneToMany
+	@OneToMany(orphanRemoval=true)
+    @JoinColumn(name="person_id", nullable = false) 
 	private List<Phone> phones;
 
+	@Column(name = "name", nullable = false)
 	private String name;
+	
+	@Column(name = "last_name", nullable = false)
 	private String lastName;
+	
+	@Column(name = "salary", nullable = false)
 	private Double salary;
+	
+	public Person() {}
 	
 	public Integer getId() {
 		return id;

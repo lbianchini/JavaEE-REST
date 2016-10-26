@@ -1,17 +1,25 @@
 package com.example.javaee.rest.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name = "country")
 public class Country {
 	
 	@Id
 	@GeneratedValue
+	@Column(name = "country_id")
 	private Integer id;
+	
+	@Column(name = "phone_code", nullable = false)
 	private String phoneCode;
+	
+	@Column(name = "name", nullable = false)
 	private String name;
+	
+	public Country() {	}
 	
 	public Integer getId() {
 		return id;
