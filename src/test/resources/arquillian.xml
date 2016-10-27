@@ -6,7 +6,7 @@
    
         <container qualifier="jboss-embedded" default="true">
               <configuration>
-                    <property name="jbossHome"></property>
+                    <property name="jbossHome">C:\SICPA\Ferramentas\jboss-eap-6.1</property>
               </configuration>
         </container>
   </arquillian>
