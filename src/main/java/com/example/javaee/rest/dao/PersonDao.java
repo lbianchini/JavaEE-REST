@@ -27,6 +27,6 @@ public class PersonDao {
 	@TransactionAttribute(TransactionAttributeType.MANDATORY)
 	@SuppressWarnings("unchecked")
 	public List<Person> getPersonList() {
-		return (List<Person>)entityManager.createQuery("from Person").getResultList();
+		return (List<Person>)entityManager.createQuery("from person p left join fetch p.phones").getResultList();
 	}
 }

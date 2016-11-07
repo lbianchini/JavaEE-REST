@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -26,7 +28,8 @@ public class PersonService {
 	private PersonController personController;
 	
 	@POST
-	@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	@Consumes({MediaType.APPLICATION_JSON})
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public Response save(Person person) {
 		
 		personController.save(person);
@@ -35,7 +38,8 @@ public class PersonService {
 	}
 	
 	@GET
-	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	@Produces({MediaType.APPLICATION_JSON})
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public List<Person> getPersonList() {
 		return personController.getPersonList();
 	}

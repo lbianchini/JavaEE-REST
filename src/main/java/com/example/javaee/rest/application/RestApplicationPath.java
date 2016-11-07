@@ -6,6 +6,6 @@ import javax.ws.rs.ApplicationPath;
 @ApplicationPath("")
 public class RestApplicationPath extends Application {
 	
-	public final static String PERSON = "persons";
+	public final static String PERSON = "/persons";
 	
 }

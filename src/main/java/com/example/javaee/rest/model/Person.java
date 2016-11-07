@@ -2,6 +2,7 @@ package com.example.javaee.rest.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,7 +31,7 @@ public class Person {
 	@Column(name = "person_id")
 	private Integer id;
 	
-	@OneToMany(orphanRemoval=true)
+	@OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="person_id", nullable = false) 
 	private List<Phone> phones;
 
@@ -69,7 +70,13 @@ public class Person {
 	public void setSalary(Double salary) {
 		this.salary = salary;
 	}
-	
+	public List<Phone> getPhones() {
+		return phones;
+	}
+	public void setPhones(List<Phone> phones) {
+		this.phones = phones;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -77,10 +84,11 @@ public class Person {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((phones == null) ? 0 : phones.hashCode());
 		result = prime * result + ((salary == null) ? 0 : salary.hashCode());
 		return result;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -105,6 +113,11 @@ public class Person {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
+		if (phones == null) {
+			if (other.phones != null)
+				return false;
+		} else if (!phones.equals(other.phones))
+			return false;
 		if (salary == null) {
 			if (other.salary != null)
 				return false;
@@ -112,10 +125,11 @@ public class Person {
 			return false;
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", name=" + name + ", lastName=" + lastName + ", salary=" + salary + "]";
+		return "Person [id=" + id + ", phones=" + phones + ", name=" + name + ", lastName=" + lastName + ", salary="
+				+ salary + "]";
 	}
 
 }
