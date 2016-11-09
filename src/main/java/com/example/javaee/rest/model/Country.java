@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity(name = "country")
-public class Country {
+public class Country extends BaseModel {
 	
 	@Id
 	@GeneratedValue

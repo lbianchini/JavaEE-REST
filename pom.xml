@@ -95,6 +95,12 @@
 		</dependency>
 
 		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-jackson-provider</artifactId>
 			<version>2.2.1.GA</version>
@@ -126,15 +132,15 @@
 
 	<!-- # Configuração dos repositórios do Maven -->
 	<repositories>
-	<repository>
-	<id>libs-release</id>
-	<url>http://10.14.9.50:8686/artifactory/libs-release</url>
-	</repository>
+		<repository>
+			<id>libs-release</id>
+			<url>http://10.14.9.50:8686/artifactory/libs-release</url>
+		</repository>
 
-	<repository>
-	<id>libs-snapshot</id>
-	<url>http://10.14.9.50:8686/artifactory/libs-snapshot</url>
-	</repository>
+		<repository>
+			<id>libs-snapshot</id>
+			<url>http://10.14.9.50:8686/artifactory/libs-snapshot</url>
+		</repository>
 	</repositories>
 
 </project>

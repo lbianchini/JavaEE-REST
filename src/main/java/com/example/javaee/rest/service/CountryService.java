@@ -15,35 +15,35 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.example.javaee.rest.application.RestApplicationPath;
-import com.example.javaee.rest.controller.PersonController;
-import com.example.javaee.rest.model.Person;
+import com.example.javaee.rest.controller.CountryController;
+import com.example.javaee.rest.model.Country;
 
-@Path(RestApplicationPath.PERSON)
+@Path(RestApplicationPath.COUNTRY)
 @Stateless
-public class PersonService {
-		
+public class CountryService {
+	
 	@EJB
-	private PersonController personController;
+	private CountryController countryController;
 	
 	@POST
 	@Consumes({MediaType.APPLICATION_JSON})
-	public Response save(Person person) {
-		personController.save(person);
-		URI uri = URI.create(RestApplicationPath.PERSON + "/" + person.getId());
-		return Response.created(uri).entity(person).build();
+	public Response save(Country country) {
+		countryController.save(country);
+		URI uri = URI.create(RestApplicationPath.COUNTRY + "/" + country.getId());
+		return Response.created(uri).entity(country).build();
 	}
 	
 	@GET
 	@Produces({MediaType.APPLICATION_JSON})
-	public List<Person> getAll() {
-		return personController.getAll(Person.class);
+	public List<Country> getAll() {
+		return countryController.getAll(Country.class);
 	}
 
 	@GET
 	@Path("{id}")
 	@Produces({MediaType.APPLICATION_JSON})
-	public Person getById(@PathParam("id") Integer id) {
-		return personController.getById(Person.class, id);
+	public Country getById(@PathParam("id") Integer id) {
+		return countryController.getById(Country.class, id);
 	}
 
 }

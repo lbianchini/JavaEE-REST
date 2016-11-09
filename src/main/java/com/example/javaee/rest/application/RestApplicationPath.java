@@ -7,5 +7,6 @@ import javax.ws.rs.ApplicationPath;
 public class RestApplicationPath extends Application {
 	
 	public final static String PERSON = "/persons";
+	public final static String COUNTRY = "/countries";
 	
 }

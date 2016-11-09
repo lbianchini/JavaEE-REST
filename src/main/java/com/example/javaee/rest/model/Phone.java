@@ -9,12 +9,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity(name = "phone")
-public class Phone {
+public class Phone extends BaseModel {
 	
 	@Id
 	@GeneratedValue
 	@Column(name = "phone_id")
 	private Integer id;
+	
+	@ManyToOne
+	@JoinColumn(name = "person_id", insertable = false, updatable = false, nullable = false)
+	private Person person;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "country_id", nullable = false)

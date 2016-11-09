@@ -22,9 +22,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 
 @Entity(name = "person")
-@XmlRootElement
+@XmlRootElement(name = "persons")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Person {
+public class Person extends BaseModel {
 
 	@Id
 	@GeneratedValue
